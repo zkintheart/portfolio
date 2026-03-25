@@ -1,0 +1,306 @@
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{--y:#FFD900;--n:#0D1128;--bg:#fafaf7}
+body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:var(--bg);color:#111;overflow-x:hidden}
+
+nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 2.5rem;background:var(--bg);border-bottom:1.5px solid #111}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-size:12px;color:#666;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--n)}
+.zerko-logo svg{width:90px;height:auto}
+
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid #111;overflow:hidden}
+.hero-left{padding:4rem 2.5rem;display:flex;flex-direction:column;justify-content:space-between;border-right:1.5px solid #111;background:var(--bg)}
+.hero-tag{font-size:11px;letter-spacing:0.18em;color:#888;text-transform:uppercase}
+.hero-title{font-size:clamp(2.6rem,5vw,4.8rem);font-weight:800;line-height:1.0;letter-spacing:-0.03em;margin:auto 0}
+.hero-title .ay{color:var(--y);-webkit-text-stroke:1.5px #111}
+.hero-title .an{color:var(--n)}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-main{padding:0.9rem 2rem;background:var(--n);color:#fff;font-size:13px;font-weight:700;letter-spacing:0.06em;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s}
+.btn-main:hover{background:var(--y);color:#111}
+.btn-outline{padding:0.9rem 2rem;background:transparent;color:#111;font-size:13px;font-weight:700;letter-spacing:0.06em;border:1.5px solid #111;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s}
+.btn-outline:hover{background:#111;color:var(--bg)}
+
+.hero-right{display:grid;grid-template-rows:1fr 1fr}
+.hero-top{background:var(--y);display:flex;align-items:center;justify-content:center;padding:2rem;border-bottom:1.5px solid #111}
+.hero-bottom{background:var(--n);display:flex;align-items:flex-end;justify-content:flex-end;padding:2rem}
+.hero-bottom p{font-size:13px;color:rgba(255,255,255,0.55);letter-spacing:0.06em;text-align:right;line-height:1.6}
+
+.marquee-wrap{background:var(--y);padding:0.75rem 0;overflow:hidden;border-top:1.5px solid #111;border-bottom:1.5px solid #111}
+.marquee-track{display:flex;gap:3rem;animation:marquee 18s linear infinite;white-space:nowrap}
+.marquee-track span{font-size:12px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#111}
+.marquee-track .dot{opacity:0.35}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1.5px solid #111}
+.stat-block{padding:2.5rem 2rem;border-right:1.5px solid #111;text-align:center}
+.stat-block:last-child{border-right:none}
+.stat-num{font-size:3rem;font-weight:800;letter-spacing:-0.03em;line-height:1}
+.stat-label{font-size:11px;color:#888;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem}
+
+#about{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid #111}
+.about-img{background:var(--n);min-height:480px;display:flex;align-items:center;justify-content:center;border-right:1.5px solid #111;position:relative;overflow:hidden}
+.about-img-ph{font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.1em}
+.ring{position:absolute;border-radius:50%;border:2px solid rgba(255,217,0,0.15)}
+.about-content{padding:4rem 3rem;background:var(--bg)}
+.section-label{font-size:11px;letter-spacing:0.18em;color:#888;text-transform:uppercase;margin-bottom:1.5rem}
+.about-headline{font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;margin-bottom:1.5rem}
+.about-body{font-size:14px;color:#555;line-height:1.85;margin-bottom:2rem}
+.pills{display:flex;flex-wrap:wrap;gap:0.5rem}
+.pill{font-size:11px;padding:0.35rem 0.9rem;border:1.5px solid #ccc;letter-spacing:0.06em;font-weight:600;cursor:default;transition:all 0.2s}
+.pill:hover{background:#111;color:#fff;border-color:#111}
+.pill.y{border-color:#cda800;color:#7a6000}
+.pill.y:hover{background:var(--y);color:#111;border-color:var(--y)}
+.pill.n{border-color:var(--n);color:var(--n)}
+.pill.n:hover{background:var(--n);color:#fff}
+
+#services{background:var(--n);color:#fff;border-bottom:1.5px solid #111;padding:4rem 2.5rem}
+.services-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.services-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1}
+.services-title .ay{color:var(--y);-webkit-text-stroke:0px}
+.services-sub{font-size:13px;color:rgba(255,255,255,0.5);max-width:260px;line-height:1.65;text-align:right}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:rgba(255,255,255,0.08)}
+.svc{background:var(--n);padding:1rem 1rem;border:1.5px solid rgba(255,255,255,0.07);transition:background 0.2s}
+.svc:hover{background:#1a2444}
+.svc-icon{width:28px;height:28px;background:var(--y);display:flex;align-items:center;justify-content:center;margin-bottom:0.8rem;font-size:13px}
+.svc-name{font-size:13px;font-weight:700;margin-bottom:0.35rem}
+.svc-desc{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:0.8rem}
+.svc-price{font-size:17px;font-weight:800;letter-spacing:-0.02em;color:var(--y)}
+.svc-price span{font-size:10px;font-weight:400;color:rgba(255,255,255,0.4)}
+
+#projects{padding:4rem 2.5rem;border-bottom:1.5px solid #111;background:var(--bg)}
+.proj-header{display:grid;grid-template-columns:1fr auto;align-items:baseline;margin-bottom:3rem}
+.proj-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;letter-spacing:-0.03em}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5px;background:#111;border:1.5px solid #111}
+.proj-card{background:var(--bg);overflow:hidden;cursor:pointer;position:relative}
+.proj-img{height:260px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#aaa;letter-spacing:0.08em;position:relative}
+.proj-img.c1{background:#fff8cc}
+.proj-img.c2{background:#e8eaf6}
+.proj-img.c3{background:#e8f4f0}
+.proj-img.c4{background:#fff3e0}
+.proj-overlay{position:absolute;inset:0;background:var(--y);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity 0.25s}
+.proj-card:hover .proj-overlay{opacity:0.92}
+.proj-overlay span{color:#111;font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase}
+.proj-info{padding:1.2rem 1.5rem;border-top:1.5px solid #111}
+.proj-name{font-size:14px;font-weight:700;margin-bottom:0.25rem}
+.proj-cat{font-size:11px;color:#888;letter-spacing:0.08em;text-transform:uppercase}
+
+.cta-band{background:var(--y);padding:5rem 2.5rem;text-align:center;border-bottom:1.5px solid #111}
+.cta-band h2{font-size:clamp(2rem,5vw,4rem);font-weight:800;color:#111;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1rem}
+.cta-band p{font-size:15px;color:rgba(0,0,0,0.6);margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+.btn-dark{padding:1rem 2.5rem;background:var(--n);color:#fff;font-size:14px;font-weight:700;letter-spacing:0.06em;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s}
+.btn-dark:hover{background:#111}
+
+#contact{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid #111}
+.contact-left{padding:4rem 3rem;background:var(--bg);border-right:1.5px solid #111}
+.contact-title{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1rem}
+.contact-title .ay{color:var(--y);-webkit-text-stroke:1.5px #111}
+.contact-sub{font-size:14px;color:#555;line-height:1.75;margin-bottom:2rem}
+.c-link{font-size:13px;color:#555;text-decoration:none;display:flex;align-items:center;gap:0.5rem;margin-bottom:0.8rem;transition:color 0.2s;letter-spacing:0.04em}
+.c-link:hover{color:var(--n)}
+.contact-right{padding:4rem 3rem;background:var(--bg)}
+.fgroup{margin-bottom:1.2rem}
+.fgroup label{font-size:11px;letter-spacing:0.1em;color:#888;display:block;margin-bottom:0.5rem;text-transform:uppercase}
+.fgroup input,.fgroup textarea,.fgroup select{width:100%;padding:0.85rem 1rem;border:1.5px solid #ddd;background:#fff;font-size:14px;color:#111;font-family:inherit;outline:none;transition:border-color 0.2s;resize:none;appearance:none}
+.fgroup input:focus,.fgroup textarea:focus,.fgroup select:focus{border-color:var(--n)}
+.submit-btn{width:100%;padding:1rem;background:var(--n);color:#fff;font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.2s}
+.submit-btn:hover{background:var(--y);color:#111}
+
+footer{background:#111;color:#fff;padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer p{font-size:12px;color:#555;letter-spacing:0.06em}
+footer .fy{color:var(--y)}
+
+@media(max-width:768px){
+  #hero,#about,#contact{grid-template-columns:1fr}
+  .hero-right{min-height:280px}
+  .hero-top{border-bottom:1.5px solid #111}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .stat-block:nth-child(2){border-right:none}
+  nav{padding:1rem 1.5rem}
+  #services,#projects{padding:3rem 1.5rem}
+  .contact-left,.contact-right{padding:3rem 1.5rem}
+  .about-content{padding:3rem 1.5rem}
+  .about-img{min-height:280px;border-right:none;border-bottom:1.5px solid #111}
+  .cta-band{padding:4rem 1.5rem}
+}
+</style>
+
+<nav>
+  <div class="zerko-logo">
+    <img src="https://drive.google.com/uc?export=view&id=1QeVvqFnPw8UNBEigzZt0FtTEsAorjf6z" style="height:48px;width:auto;display:block" alt="Zerko logo">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">Historia</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Diseñador Gráfico · Moda · IA — Zaragoza</p>
+    <div>
+      <h1 class="hero-title">Tu marca<br>merece<br><span class="ay">verse.</span><br><span class="an">Sentirse.</span><br>Quedarse.</h1>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-main">Quiero mi diseño</a>
+      <a href="#projects" class="btn-outline">Ver trabajos</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-top">
+      <img src="https://drive.google.com/uc?export=view&id=1QeVvqFnPw8UNBEigzZt0FtTEsAorjf6z" style="width:220px;height:auto;filter:invert(1)" alt="Zerko logo">
+    </div>
+    <div class="hero-bottom">
+      <p>Diseño con propósito.<br>Resultados con estética.</p>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Diseño Gráfico</span><span class="dot">◆</span>
+    <span>Identidad de Marca</span><span class="dot">◆</span>
+    <span>Diseño de Moda</span><span class="dot">◆</span>
+    <span>Portadas Musicales</span><span class="dot">◆</span>
+    <span>Zerko Visuals</span><span class="dot">◆</span>
+    <span>Social Media + IA</span><span class="dot">◆</span>
+    <span>Zaragoza</span><span class="dot">◆</span>
+    <span>Diseño Gráfico</span><span class="dot">◆</span>
+    <span>Identidad de Marca</span><span class="dot">◆</span>
+    <span>Diseño de Moda</span><span class="dot">◆</span>
+    <span>Portadas Musicales</span><span class="dot">◆</span>
+    <span>Zerko Visuals</span><span class="dot">◆</span>
+    <span>Social Media + IA</span><span class="dot">◆</span>
+    <span>Zaragoza</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-block"><div class="stat-num">4+</div><div class="stat-label">Años diseñando</div></div>
+  <div class="stat-block"><div class="stat-num" style="color:#cda800">60+</div><div class="stat-label">Proyectos entregados</div></div>
+  <div class="stat-block"><div class="stat-num" style="color:#0D1128">3</div><div class="stat-label">Áreas de expertise</div></div>
+  <div class="stat-block"><div class="stat-num">100%</div><div class="stat-label">Freelance & dedicado</div></div>
+</div>
+
+<section id="about">
+  <div class="about-img">
+    <div class="ring" style="width:320px;height:320px;top:-100px;left:-100px"></div>
+    <div class="ring" style="width:160px;height:160px;bottom:50px;right:50px"></div>
+    <span class="about-img-ph">[ tu foto ]</span>
+  </div>
+  <div class="about-content">
+    <p class="section-label">Sobre Zerko</p>
+    <h2 class="about-headline">De un móvil en<br>cuarentena a fundar<br>mi propia agencia.</h2>
+    <p class="about-body">En 2020, con un móvil y mucha curiosidad, empecé a diseñar desde Zaragoza. Un portátil básico, Photoshop y miles de tutoriales después — llegaron mis primeros clientes reales: portadas musicales que me apasionaron y empezaron a generar ingresos.<br><br>Estos últimos dos años, la ambición de crear mi propia marca de ropa me llevó al diseño de moda. Hoy ese camino culmina en <strong>Zerko Visuals</strong> — mi agencia creativa que une diseño, moda e inteligencia artificial para impulsar marcas.</p>
+    <div class="pills">
+      <span class="pill">Diseño Gráfico</span>
+      <span class="pill y">Diseño Audiovisual</span>
+      <span class="pill n">Diseño de Moda</span>
+      <span class="pill">Photoshop</span>
+      <span class="pill y">Adobe CC</span>
+      <span class="pill n">IA Generativa</span>
+      <span class="pill">Identidad de Marca</span>
+      <span class="pill">Social Media</span>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="services-head">
+    <h2 class="services-title">Lo que puedo<br>hacer por tu <span class="ay">marca</span></h2>
+    <p class="services-sub">Precios pensados para artistas, emprendedores y marcas que empiezan — sin renunciar a la calidad.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc">
+      <div class="svc-icon">🎨</div>
+      <p class="svc-name">Identidad de marca</p>
+      <p class="svc-desc">Logo, paleta, tipografía y sistema visual completo. Todo lo que necesita tu marca para existir con coherencia.</p>
+      <p class="svc-price">desde 150€ <span>/ proyecto</span></p>
+    </div>
+    <div class="svc">
+      <div class="svc-icon">🎬</div>
+      <p class="svc-name">Diseño Audiovisual</p>
+      <p class="svc-desc">Vídeos, motion graphics, portadas y piezas visuales que comunican con impacto en cualquier formato.</p>
+      <p class="svc-price">desde 80€ <span>/ proyecto</span></p>
+    </div>
+    <div class="svc">
+      <div class="svc-icon">👗</div>
+      <p class="svc-name">Diseño de moda</p>
+      <p class="svc-desc">Colecciones, fichas técnicas, estampados y dirección estética para marcas de ropa con personalidad.</p>
+      <p class="svc-price">desde 120€ <span>/ proyecto</span></p>
+    </div>
+    <div class="svc">
+      <div class="svc-icon">⚡</div>
+      <p class="svc-name">Social Media + IA</p>
+      <p class="svc-desc">Contenido visual estratégico para redes potenciado con inteligencia artificial. Consistente. Efectivo.</p>
+      <p class="svc-price">desde 200€ <span>/ mes</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="proj-header">
+    <h2 class="proj-title">Proyectos</h2>
+    <a href="#contact" style="font-size:13px;color:#888;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase">Todos →</a>
+  </div>
+  <div class="project-grid">
+    <div class="proj-card">
+      <div class="proj-img c1">[ imagen ]<div class="proj-overlay"><span>Ver →</span></div></div>
+      <div class="proj-info"><p class="proj-name">Portada musical — Single urbano</p><p class="proj-cat">Diseño gráfico · Música</p></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img c2">[ imagen ]<div class="proj-overlay"><span>Ver →</span></div></div>
+      <div class="proj-info"><p class="proj-name">Identidad visual — Marca de ropa</p><p class="proj-cat">Branding · Moda</p></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img c3">[ imagen ]<div class="proj-overlay"><span>Ver →</span></div></div>
+      <div class="proj-info"><p class="proj-name">Contenido redes — Marca lifestyle</p><p class="proj-cat">Social media · IA</p></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img c4">[ imagen ]<div class="proj-overlay"><span>Ver →</span></div></div>
+      <div class="proj-info"><p class="proj-name">Colección — Temporada 2025</p><p class="proj-cat">Diseño de moda · Editorial</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>¿Tu marca todavía<br>no tiene cara?</h2>
+  <p>Cada día sin identidad visual es un día que tu competencia te lleva ventaja. Hablemos hoy — sin compromiso.</p>
+  <a href="#contact" class="btn-dark">Empezar ahora</a>
+</div>
+
+<section id="contact">
+  <div class="contact-left">
+    <p class="section-label">Contacto</p>
+    <h2 class="contact-title">Cuéntame<br>tu <span class="ay">proyecto.</span></h2>
+    <p class="contact-sub">Trabajo con artistas, marcas de moda y negocios desde Zaragoza y a distancia. Primera consulta sin coste. Respondo en menos de 24h.</p>
+    <a href="mailto:gfxzzko@gmail.com" class="c-link">✉ gfxzzko@gmail.com</a>
+    <a href="https://instagram.com/zkintheart" class="c-link">↗ Instagram personal — @zkintheart</a>
+    <a href="https://instagram.com/zerkovisuals" class="c-link">↗ Instagram agencia — @zerkovisuals</a>
+  </div>
+  <div class="contact-right">
+    <div class="fgroup"><label>Nombre o marca</label><input type="text" placeholder="¿Cómo te llamas?"></div>
+    <div class="fgroup"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
+    <div class="fgroup">
+      <label>¿Qué necesitas?</label>
+      <select>
+        <option value="">Selecciona un servicio...</option>
+        <option>Identidad de marca</option>
+        <option>Diseño Audiovisual</option>
+        <option>Diseño de moda</option>
+        <option>Social Media + IA</option>
+        <option>Otro proyecto</option>
+      </select>
+    </div>
+    <div class="fgroup"><label>Cuéntame más</label><textarea rows="4" placeholder="Tu idea, tu marca, tu presupuesto aproximado..."></textarea></div>
+    <button class="submit-btn">Enviar mensaje ↗</button>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span class="fy">ZERKO</span> — ZERKO VISUALS</p>
+  <p>DISEÑO GRÁFICO · MODA · IA · <span class="fy">ZARAGOZA</span></p>
+</footer>
